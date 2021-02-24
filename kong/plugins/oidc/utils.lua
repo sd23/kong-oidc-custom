@@ -71,6 +71,11 @@ function M.injectAccessToken(accessToken)
   ngx.req.set_header("X-Access-Token", accessToken)
 end
 
+-- function M.injectAuthHeader(accessToken)
+--   ngx.req.set_header("Authorization", "bearer " .. accessToken)
+--   -- ngx.req.clear_header("Cookie")
+-- end
+
 function M.injectIDToken(idToken)
   local tokenStr = cjson.encode(idToken)
   ngx.req.set_header("X-ID-Token", ngx.encode_base64(tokenStr))
